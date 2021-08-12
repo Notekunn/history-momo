@@ -1,11 +1,17 @@
 const { Sequelize, DataTypes } = require('sequelize');
-const sequelize = new Sequelize(
-	process.env.DATABASE_URL || {
-		dialect: 'sqlite',
-		storage: './database.sqlite',
-		logging: false,
-	}
-);
+const config = {
+	dialect: 'postgres',
+	logging: false,
+	host: 'ec2-35-174-56-18.compute-1.amazonaws.com',
+	port: '5432',
+	username: 'msqmaoavigbsjb',
+	password: 'c1a5972cc27cc8046eb7a6cff6c35be89692ce5a2519bdfa81445e381630af25',
+	database: 'd74rqsclshfs8e',
+};
+const sequelize = new Sequelize({
+	dialect: 'sqlite',
+	storage: './database.sqlite',
+});
 const History = sequelize.define('history', {
 	id: {
 		autoIncrement: true,
